@@ -28,7 +28,7 @@
 <a name="wda"></a>
 ##### 安装 `WebDriverAgent`
 - [iOS 真机如何安装 WebDriverAgent](https://testerhome.com/topics/7220)
-- install [python-wda](https://github.com/openatx/facebook-wda)
+- 安装 [python-wda](https://github.com/openatx/facebook-wda)
 - [WDA API docs](https://github.com/openatx/facebook-wda)
 
 > 发现这个 `WDA` 和我之前开发抢课软件用到的 `ChromeDriver` 异曲同工。以后也将更方便我做此类自动化项目。
