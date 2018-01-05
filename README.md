@@ -23,7 +23,7 @@
 ### 准备工作
 ##### 工具
 - Mac
-- iPhone 6/7
+- iPhone 6/7/8
 
 <a name="wda"></a>
 ##### 安装 `WebDriverAgent`
@@ -258,7 +258,7 @@ main()
 
 <a name="intro"></a>
 ### 使用说明
-> `注意`：本教程直接适用于 iPhone6 & iPhone7。其他 iPhone 机型请参考 [数据分析](#analyze) 来调试以下数据
+> `注意`：本教程直接适用于 iPhone6/7/8 (4.7寸显示屏)。其他 iPhone 机型请参考 [数据分析](#analyze) 来调试以下数据
 >
 > ```
 > MAGICNUM = 0.0019
