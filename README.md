@@ -154,7 +154,7 @@ for i in range(19):
 ```
 > 通过以上算法可以定位 `棋子` 和 `目的地中心位置`
 >
-> ![sample](/img/post/20180104/sample.png)
+> ![sample](/img/sample.png)
 
 ###### 结果 (hackjump.py)
 ```python
