@@ -1,3 +1,4 @@
+__author__ = "bythew3i"
 
 from math import sqrt
 import wda
@@ -5,10 +6,10 @@ from PIL import Image, ImageDraw
 import time
 
 MAGICNUM = 0.0020 # coeffcient = time/physicalDistance
-PLAYERCOLOR = (56, 59, 102) # player reference color
+PLAYERCOLOR = (56, 59, 102) # player color reference
 PCOLORAPPR = 5 # player color approximation (tryin to find the pixel whose color distance with PLAYERCOLR is less than this value)
-BCOLORDIFF = 30 # board color difference (compare with background color, if greater than this value, we consider it is from board)
-BCOLORAPPR = 5 # board color approximation (After find topmost board pixel use this to find the rightmost pixel with the colorDistance < this value)
+BCOLORDIFF = 30 # board color difference (calculate the color distance of a pixel and background color, if greater than this value, we consider this pixel is from board)
+BCOLORAPPR = 5 # board color approximation (After finding topmost board pixel, use it to find the rightmost pixel by calling "isCloseColor" function with this value)
 
 def colorDistance(c1, c2):
 	return sqrt((c1[0]-c2[0])**2+(c1[1]-c2[1])**2+(c1[2]-c2[2])**2)

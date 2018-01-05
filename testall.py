@@ -1,10 +1,12 @@
+__author__ = "bythew3i"
+
 from PIL import Image, ImageDraw
 from math import sqrt
 
-PLAYERCOLOR = (56, 59, 102) # player reference color
+PLAYERCOLOR = (56, 59, 102) # player color reference
 PCOLORAPPR = 5 # player color approximation (tryin to find the pixel whose color distance with PLAYERCOLR is less than this value)
-BCOLORDIFF = 30 # board color difference (compare with background color, if greater than this value, we consider it is from board)
-BCOLORAPPR = 5 # board color approximation (After find topmost board pixel use this to find the rightmost pixel with the colorDistance < this value)
+BCOLORDIFF = 30 # board color difference (calculate the color distance of a pixel and background color, if greater than this value, we consider this pixel is from board)
+BCOLORAPPR = 5 # board color approximation (After finding topmost board pixel, use it to find the rightmost pixel by calling "isCloseColor" function with this value)
 
 def aimTarget(im, tx, ty, color=33):
 	imw = im.size[0] # width

@@ -7,7 +7,9 @@
 ### 废话
 前几日（2017年12月28日），微信发布了一款 `跳一跳` 的小程序。而我是大概在今年一月2号才第一次玩这个游戏，由于手残，分数一直在 10 分左右徘徊。
 
-那天拉屎的时候，正好看到一条关于跳一跳“伪POST刷分”的微信推送，评论里说腾讯已经及时修补了该漏洞。于是，我纳闷是否还有其他破解方法，然后我就看到 `github` 上的确有这样类似的项目：https://github.com/wangshub/wechat_jump_game
+那天拉屎的时候，正好看到一条关于跳一跳“伪POST刷分”的微信推送，评论里说腾讯已经及时修补了该漏洞。于是，我纳闷是否还有其他破解方法，然后我就看到 `github` 上的确有这样类似的项目：
+
+https://github.com/wangshub/wechat_jump_game
 
 之前没有写这种外挂的经验，一看他 `python` 脚本里用到的库 `PIL` 啊什么的都是我非常熟悉的库。于是我就放弃阅读了，准备自己试着写一个破解程序。
 
@@ -37,7 +39,7 @@
 ##### 整体思路
 - 跳之前，拍一张游戏截图传到电脑
 - 算法识别 `棋子位置` 和 `目的地中心位置` （也就是下个着陆点）
-- 就算距离，转化时间
+- 计算距离，转化时间
 - 通过 WDA 控制 iPhone 完成跳跃
 - 回到第一步
 
@@ -50,7 +52,7 @@
 ###### 采样 (test.py)
 
 ```python
-__author__ = "bythew3i"
+__author__="bythew3i"
 
 import wda
 
@@ -66,15 +68,15 @@ while input("Enter CMD: ")!="n":
 
 ###### 分析 (imgtest.py, testall.py)
 ```python
-__author__ = "bythew3i"
+__author__="bythew3i"
 
 from PIL import Image, ImageDraw
 from math import sqrt
 
-PLAYERCOLOR = (56, 59, 102) # player reference color
+PLAYERCOLOR = (56, 59, 102) # player color reference
 PCOLORAPPR = 5 # player color approximation (tryin to find the pixel whose color distance with PLAYERCOLR is less than this value)
-BCOLORDIFF = 30 # board color difference (compare with background color, if greater than this value, we consider it is from board)
-BCOLORAPPR = 5 # board color approximation (After find topmost board pixel use this to find the rightmost pixel with the colorDistance < this value)
+BCOLORDIFF = 30 # board color difference (calculate the color distance of a pixel and background color, if greater than this value, we consider this pixel is from board)
+BCOLORAPPR = 5 # board color approximation (After finding topmost board pixel, use it to find the rightmost pixel by calling "isCloseColor" function with this value)
 
 def aimTarget(im, tx, ty, color=33):
 	imw = im.size[0] # width
@@ -166,7 +168,7 @@ for i in range(19):
 
 ###### 结果 (hackjump.py)
 ```python
-__author__ = "bythew3i"
+__author__="bythew3i"
 
 from math import sqrt
 import wda
@@ -174,10 +176,10 @@ from PIL import Image, ImageDraw
 import time
 
 MAGICNUM = 0.0020 # coeffcient = time/physicalDistance
-PLAYERCOLOR = (56, 59, 102) # player reference color
+PLAYERCOLOR = (56, 59, 102) # player color reference
 PCOLORAPPR = 5 # player color approximation (tryin to find the pixel whose color distance with PLAYERCOLR is less than this value)
-BCOLORDIFF = 30 # board color difference (compare with background color, if greater than this value, we consider it is from board)
-BCOLORAPPR = 5 # board color approximation (After find topmost board pixel use this to find the rightmost pixel with the colorDistance < this value)
+BCOLORDIFF = 30 # board color difference (calculate the color distance of a pixel and background color, if greater than this value, we consider this pixel is from board)
+BCOLORAPPR = 5 # board color approximation (After finding topmost board pixel, use it to find the rightmost pixel by calling "isCloseColor" function with this value)
 
 def colorDistance(c1, c2):
 	return sqrt((c1[0]-c2[0])**2+(c1[1]-c2[1])**2+(c1[2]-c2[2])**2)
@@ -270,10 +272,10 @@ main()
 >
 > ```
 > MAGICNUM = 0.0020 # coeffcient = time/physicalDistance
-> PLAYERCOLOR = (56, 59, 102) # player reference color
+> PLAYERCOLOR = (56, 59, 102) # player color reference
 > PCOLORAPPR = 5 # player color approximation (tryin to find the pixel whose color distance with PLAYERCOLR is less than this value)
-> BCOLORDIFF = 30 # board color difference (compare with background color, if greater than this value, we consider it is from board)
-> BCOLORAPPR = 5 # board color approximation (After find topmost board pixel use this to find the rightmost pixel with the colorDistance < this value)
+> BCOLORDIFF = 30 # board color difference (calculate the color distance of a pixel and background color, if greater than this value, we consider this pixel is from board)
+> BCOLORAPPR = 5 # board color approximation (After finding topmost board pixel, use it to find the rightmost pixel by calling "isCloseColor" function with this value)
 > ```
 
 完成 [安装 WDA](#wda) 后，
@@ -302,7 +304,6 @@ python3 hackjump.py
 ```
 
 不要太 `high` 哦. 差不多就行了 ...
-
 <img src="/img/high.png" alt="ad3" width="50%">
 
 Github 项目地址: https://github.com/by-the-w3i/WeChat-JumpGame-hack-iPhone

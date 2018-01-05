@@ -1,7 +1,7 @@
-
 # iOS 测试 iOS-remote 安装篇之 WebDriverAgent 安装使用完全指南
 # https://testerhome.com/topics/10463
 
+__author__ = "bythew3i"
 
 import wda
 from PIL import Image, ImageDraw
