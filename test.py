@@ -29,4 +29,3 @@ cnt = 19
 while input("Enter CMD: ")!="n":
 	c.screenshot('img_data/screenshot{}.png'.format(cnt))
 	cnt += 1
-
