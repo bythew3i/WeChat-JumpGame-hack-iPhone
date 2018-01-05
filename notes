@@ -1,0 +1,40 @@
+
+## 自动化
+# iOS 测试 iOS-remote 安装篇之 WebDriverAgent 安装使用完全指南
+# https://testerhome.com/topics/10463
+
+
+## WDA API
+https://github.com/openatx/facebook-wda
+
+
+
+## 测出所需数据
+import wda
+c=wda.Client()
+s =  c.session('com.tencent.xin')
+print(s.window_size())
+
+>>> Size(width=375, height=667)
+
+(0,0)->
+ |     |
+ v     |
+ ------
+
+PIL API  pillow
+https://pillow.readthedocs.io/en/4.3.x/
+https://pillow.readthedocs.io/en/4.3.x/reference/ImageDraw.html
+
+750 x 1334
+
+scanYstart = 220
+
+
+
+## 算法：
+
+
+
+
+
