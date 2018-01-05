@@ -18,7 +18,7 @@
 
 > <iframe src="https://www.youtube.com/embed/thoQPGUqHGw" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 >
-> 这是我的成品，有 99% 的成功率
+> 这是我的成品，全自动无限刷分
 
 ### 准备工作
 ##### 工具
@@ -37,7 +37,7 @@
 - 跳之前，拍一张游戏截图传到电脑
 - 算法识别 `棋子位置` 和 `目的地中心位置` （也就是下个着陆点）
 - 就算距离，转化时间
-- 同过 WDA 控制 iPhone 完成跳跃
+- 通过 WDA 控制 iPhone 完成跳跃
 - 回到第一步
 
 
@@ -52,7 +52,7 @@
 import wda
 
 c=wda.Client()
-cnt = 0
+cnt = 1
 while input("Enter CMD: ")!="n":
 	c.screenshot('img_data/screenshot{}.png'.format(cnt))
 	cnt += 1
