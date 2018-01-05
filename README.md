@@ -28,7 +28,8 @@
 <a name="wda"></a>
 ##### 安装 `WebDriverAgent`
 - [iOS 真机如何安装 WebDriverAgent](https://testerhome.com/topics/7220)
-- [WDA API docs](https://github.com/facebook/WebDriverAgent)
+- install [python-wda](https://github.com/openatx/facebook-wda)
+- [WDA API docs](https://github.com/openatx/facebook-wda)
 
 > 发现这个 `WDA` 和我之前开发抢课软件用到的 `ChromeDriver` 异曲同工。以后也将更方便我做此类自动化项目。
 
@@ -59,7 +60,7 @@ while input("Enter CMD: ")!="n":
 ```
 > 得到屏幕 N 张 screenshot
 >
-> Again, [WDA 使用教程](https://github.com/facebook/WebDriverAgent)
+> Again, [WDA 使用教程](https://github.com/openatx/facebook-wda)
 
 ###### 分析 (imgtest.py, testall.py)
 ```python
