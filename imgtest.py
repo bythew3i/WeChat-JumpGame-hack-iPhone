@@ -1,10 +1,10 @@
 from PIL import Image, ImageDraw
 from math import sqrt
 
-PLAYERCOLOR = (56, 59, 102) # player standard color
-PCOLORAPPR = 5 # max color approximation
-BCOLORDIFF = 30 # min border color difference
-BCOLORAPPR = 5
+PLAYERCOLOR = (56, 59, 102) # player reference color
+PCOLORAPPR = 5 # player color approximation (tryin to find the pixel whose color distance with PLAYERCOLR is less than this value)
+BCOLORDIFF = 30 # board color difference (compare with background color, if greater than this value, we consider it is from board)
+BCOLORAPPR = 5 # board color approximation (After find topmost board pixel use this to find the rightmost pixel with the colorDistance < this value)
 
 def aimTarget(im, tx, ty, color=33):
 	imw = im.size[0] # width
@@ -56,7 +56,7 @@ def findBoard(im, right=True): # only search left half
 	xfrm, xto = imw//2, 0
 	if right:
 		xfrm, xto = imw-1, imw//2
-	# find the top and board color 
+	# find the top and board color
 	for y in range(int(imh/3), int(imh/2)):
 		preColor = im.getpixel((xto, y))
 		for x in range(xfrm, xto, -1):
@@ -75,7 +75,7 @@ def findBoard(im, right=True): # only search left half
 			curColor = im.getpixel((x, y))
 			if isCloseColor(curColor, boardColor, BCOLORAPPR):
 				return topX, y
-	
+
 	return None
 
 
@@ -105,6 +105,3 @@ aimTarget(im, bx, by)
 
 
 im.save("test.png")
-
-
-

@@ -71,10 +71,10 @@ __author__ = "bythew3i"
 from PIL import Image, ImageDraw
 from math import sqrt
 
-PLAYERCOLOR = (56, 59, 102) # player standard color
-PCOLORAPPR = 5 # max color approximation
-BCOLORDIFF = 30 # min border color difference
-BCOLORAPPR = 5
+PLAYERCOLOR = (56, 59, 102) # player reference color
+PCOLORAPPR = 5 # player color approximation (tryin to find the pixel whose color distance with PLAYERCOLR is less than this value)
+BCOLORDIFF = 30 # board color difference (compare with background color, if greater than this value, we consider it is from board)
+BCOLORAPPR = 5 # board color approximation (After find topmost board pixel use this to find the rightmost pixel with the colorDistance < this value)
 
 def aimTarget(im, tx, ty, color=33):
 	imw = im.size[0] # width
@@ -173,11 +173,11 @@ import wda
 from PIL import Image, ImageDraw
 import time
 
-MAGICNUM = 0.0019
-PLAYERCOLOR = (56, 59, 102) # player standard color
-PCOLORAPPR = 5 # max color approximation
-BCOLORDIFF = 30 # min border color difference
-BCOLORAPPR = 5
+MAGICNUM = 0.0020 # coeffcient = time/physicalDistance
+PLAYERCOLOR = (56, 59, 102) # player reference color
+PCOLORAPPR = 5 # player color approximation (tryin to find the pixel whose color distance with PLAYERCOLR is less than this value)
+BCOLORDIFF = 30 # board color difference (compare with background color, if greater than this value, we consider it is from board)
+BCOLORAPPR = 5 # board color approximation (After find topmost board pixel use this to find the rightmost pixel with the colorDistance < this value)
 
 def colorDistance(c1, c2):
 	return sqrt((c1[0]-c2[0])**2+(c1[1]-c2[1])**2+(c1[2]-c2[2])**2)
@@ -269,11 +269,11 @@ main()
 > `注意`：本教程直接适用于 iPhone6/7/8 (4.7寸显示屏)。其他 iPhone 机型请参考 [数据分析](#analyze) 来调试以下数据
 >
 > ```
-> MAGICNUM = 0.0019
-> PLAYERCOLOR = (56, 59, 102) # player standard color
-> PCOLORAPPR = 5 # max color approximation
-> BCOLORDIFF = 30 # min border color difference
-> BCOLORAPPR = 5
+> MAGICNUM = 0.0020 # coeffcient = time/physicalDistance
+> PLAYERCOLOR = (56, 59, 102) # player reference color
+> PCOLORAPPR = 5 # player color approximation (tryin to find the pixel whose color distance with PLAYERCOLR is less than this value)
+> BCOLORDIFF = 30 # board color difference (compare with background color, if greater than this value, we consider it is from board)
+> BCOLORAPPR = 5 # board color approximation (After find topmost board pixel use this to find the rightmost pixel with the colorDistance < this value)
 > ```
 
 完成 [安装 WDA](#wda) 后，
